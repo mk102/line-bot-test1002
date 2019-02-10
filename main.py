@@ -37,16 +37,7 @@ def callback():
 
     return 'OK'
 
-# フォローイベントの場合の処理
-@handler.add(FollowEvent)
-def handle_follow(event):
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text='初めまして')
-    )
 
-# メッセージイベントの場合の処理
-# かつテキストメッセージの場合
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     line_bot_api.reply_message(

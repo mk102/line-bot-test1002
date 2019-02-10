@@ -40,7 +40,14 @@ def callback():
         abort(400)
 
     return 'OK'
+@handler.add(MessageEvent, message=(ImageMessage, AudioMessage))
+def handle_image_audio_message(event):
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text="画像や音声は対応していません")
+    )
 
+#メッセージ判定イベントハンドラ
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     text = event.message.text

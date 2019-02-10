@@ -51,8 +51,8 @@ def handle_follow(event):
 def handle_message(event):
     text = event.message.text
     line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text="よろしく〜"))
+        event.reply_token,
+        TextSendMessage(text="よろしく〜"))
 
 
 if __name__ == "__main__":

@@ -47,17 +47,21 @@ def handle_message(event):
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text="こんにちは"))
-    else:
+    elif text == "お腹すいた":
         url='https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=93af8ad3c31d026bbd4801aaa738b64d&pref=PREF40&area=AREA140&areacode_m=AREAM5114'
         html=requests.get(url)
         data=json.loads(html.text)
 
         rest = data['rest']
         choi = random.choice(rest)
-        
+
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=choi['name']))
+    else:
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="「お腹すいた」と言ってみよう！箱崎のお店をランダムに紹介するよ！！"))
 
 
 if __name__ == "__main__":

@@ -59,6 +59,10 @@ def handle_message(event):
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=res))
+    elif text == "おっぱい":
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="吸いたいの〜〜？"))
     else:
         line_bot_api.reply_message(
             event.reply_token,

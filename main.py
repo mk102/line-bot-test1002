@@ -54,10 +54,11 @@ def handle_message(event):
 
         rest = data['rest']
         choi = random.choice(rest)
+        res = "店名："+choi['name']+"\n"+choi['url']
 
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text=choi['name']))
+            TextSendMessage(text=res))
     else:
         line_bot_api.reply_message(
             event.reply_token,

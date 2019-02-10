@@ -42,7 +42,7 @@ def callback():
 def line_get_data():
     #data={'京都市':3404,'四条':3414,'河原町':3402}
     apikey='93af8ad3c31d026bbd4801aaa738b64d'
-    url='https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=0320d9b5c7fb25f63ba27a7d8c3e343a&pref=PREF40&area=AREA140&areacode_m=AREAM5114'
+    url='https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=93af8ad3c31d026bbd4801aaa738b64d&pref=PREF40&area=AREA140&areacode_m=AREAM5114'
 
     html=requests.get(url)
     data=json.loads(html.text)

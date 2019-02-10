@@ -12,6 +12,7 @@ from linebot.models import (
 import os
 import json
 import random
+import requests
 
 app = Flask(__name__)
 
@@ -41,9 +42,8 @@ def callback():
 
 def line_get_data():
     #data={'京都市':3404,'四条':3414,'河原町':3402}
-    apikey='93af8ad3c31d026bbd4801aaa738b64d'
+    #apikey='93af8ad3c31d026bbd4801aaa738b64d'
     url='https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=93af8ad3c31d026bbd4801aaa738b64d&pref=PREF40&area=AREA140&areacode_m=AREAM5114'
-
     html=requests.get(url)
     data=json.loads(html.text)
     return data
@@ -57,8 +57,9 @@ def handle_message(event):
             TextSendMessage(text="こんにちは"))
     else:
         restaurant = line_get_data()
-        rests = random.choice(restaurant)
-        text = json.dumps(rests)
+        rests = restaurant['rest']
+        choi = random.choice(rest)
+        text = choi['name']
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=text))

@@ -47,7 +47,7 @@ def handle_message(event):
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text="こんにちは"))
-    elif　"お腹すいた" in text:
+    elif text == "お腹すいた":
         url='https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=93af8ad3c31d026bbd4801aaa738b64d&pref=PREF40&area=AREA140&areacode_m=AREAM5114'
         html=requests.get(url)
         data=json.loads(html.text)

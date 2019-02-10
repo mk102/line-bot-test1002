@@ -45,9 +45,10 @@ def handle_message(event):
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text="こんにちは"))
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text="よろしく〜"))
+    else:
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="よろしく〜"))
 
 
 if __name__ == "__main__":

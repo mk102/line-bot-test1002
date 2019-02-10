@@ -7,7 +7,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    ImageMessage, MessageEvent, TextMessage, TextSendMessage,
+    AudioMessage, ImageMessage, MessageEvent, TextMessage, TextSendMessage,
 )
 import os
 import json
@@ -69,7 +69,15 @@ def handle_message(event):
 
 @handler.add(MessageEvent, message=ImageMessage)
 def handle_image(event):
-    print(event.message.id)
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text="画像入力は対応していません"))
+
+@handler.add(MessageEvent, message=AudioMessage)
+def handle_audio(event):
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text="音声入力は対応していません"))
 
 if __name__ == "__main__":
 #    app.run()

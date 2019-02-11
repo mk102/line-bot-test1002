@@ -58,14 +58,14 @@ def handle_message(event):
 
         rest = data['rest']
         choi = random.choice(rest)
-        re_name = choi['name']
+        rest_name = choi['name']
         image = choi['image_url']['shop_image1']
         #こっから
         buttons_template_message = TemplateSendMessage(
             alt_text='Buttons template',
             template=ButtonsTemplate(
             thumbnail_image_url=image,
-            title='a',
+            title=rest_name,
             text='a',
             actions=[
                 MessageAction(

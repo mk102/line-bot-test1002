@@ -58,10 +58,25 @@ def handle_message(event):
         rest = data['rest']
         choi = random.choice(rest)
         res = "店名："+choi['name']+"\n"+choi['url']
+        image = choi['image_url']['shop_image1']
+
+        buttons_template_message = TemplateSendMessage(
+            alt_text='Buttons template',
+            template=ButtonsTemplate(
+                thumbnail_image_url=image,
+                title='Menu',
+                actions=[
+                    URIAction(
+                        label='uri',
+                        uri='http://example.com/'
+                    )
+                ]
+            )
+        )
 
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text=res))
+            TextSendMessage(text=buttons_template_message))
     else:
         line_bot_api.reply_message(
             event.reply_token,

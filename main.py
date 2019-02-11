@@ -8,7 +8,7 @@ from linebot.exceptions import (
 )
 from linebot.models import (
     AudioMessage, ImageMessage, MessageEvent, TextMessage, TextSendMessage,
-    TemplateSendMessage, ButtonsTemplate
+    TemplateSendMessage, ButtonsTemplate, MessageAction
 )
 import os
 import json

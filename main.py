@@ -65,7 +65,7 @@ def handle_message(event):
             alt_text='Buttons template',
             template=ButtonsTemplate(
             thumbnail_image_url=image,
-            title=choi['name'],
+            title='a',
             text='a'
             actions=[
                 MessageAction(

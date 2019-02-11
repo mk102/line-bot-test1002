@@ -60,7 +60,7 @@ def handle_message(event):
         choi = random.choice(rest)
         rest_name = choi['name']
         image = choi['image_url']['shop_image1']
-        rest_address = choi['address']+"\n"+"Supported by ぐるなびWebService"
+        rest_address = choi['address']+"\n"+"Supported by <a href="https://api.gnavi.co.jp/api/scope/" target="_blank">ぐるなびWebService</a>"
         rest_url = choi['url']
         if image == '':
             image = choi['image_url']['qrcode']

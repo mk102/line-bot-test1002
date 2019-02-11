@@ -60,20 +60,23 @@ def handle_message(event):
         choi = random.choice(rest)
         res = "店名："+choi['name']+"\n"+choi['url']
         image = choi['image_url']['shop_image1']
+        #こっから
+        profile = line_bot_api.get_profile(event.source.user_id)
 
-        buttons_template_message = TemplateSendMessage(
-            alt_text='Buttons template',
-            template=ButtonsTemplate(
-                thumbnail_image_url=image,
-                title='Menu',
-                actions=[MessageAction(label="成功", text="次は何を実装しましょうか？")]
-            )
-        )
+        status_msg = profile.status_message
+        if status_msg != "None":
+        # LINEに登録されているstatus_messageが空の場合は、"なし"という文字列を代わりの値とする
+        status_msg = "なし"
 
-        line_bot_api.reply_message(
-            event.reply_token,
-            messages=buttons_template_message)
-        print('error')
+        messages = TemplateSendMessage(alt_text="Buttons template",
+                                       template=ButtonsTemplate(
+                                        thumbnail_image_url=profile.picture_url,
+                                        title=profile.display_name,
+                                        text=f"User Id: {profile.user_id[:5]}...\n"
+                                            f"Status Message: {status_msg}",
+                                            actions=[MessageAction(label="成功", text="次は何を実装しましょうか？")]))
+        line_bot_api.reply_message(event.reply_token, messages=messages)
+        #ここまで
     else:
         line_bot_api.reply_message(
             event.reply_token,

@@ -66,12 +66,7 @@ def handle_message(event):
             template=ButtonsTemplate(
                 thumbnail_image_url=image,
                 title='Menu',
-                actions=[
-                    URIAction(
-                        label='uri',
-                        uri='http://example.com/'
-                    )
-                ]
+                actions=[MessageAction(label="成功", text="次は何を実装しましょうか？")]
             )
         )
 

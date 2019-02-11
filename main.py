@@ -77,7 +77,7 @@ def handle_message(event):
 
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(messages=buttons_template_message))
+            messages=buttons_template_message)
         print('error')
     else:
         line_bot_api.reply_message(

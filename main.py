@@ -8,7 +8,7 @@ from linebot.exceptions import (
 )
 from linebot.models import (
     AudioMessage, ImageMessage, MessageEvent, TextMessage, TextSendMessage,
-    TemplateSendMessage, ButtonsTemplate, MessageAction
+    TemplateSendMessage, ButtonsTemplate, MessageAction, URIAction
 )
 import os
 import json
@@ -61,6 +61,7 @@ def handle_message(event):
         rest_name = choi['name']
         image = choi['image_url']['shop_image1']
         rest_address = choi['address']
+        rest_url = choi['url']
         #こっから
         buttons_template_message = TemplateSendMessage(
             alt_text='Buttons template',
@@ -69,9 +70,9 @@ def handle_message(event):
             title=rest_name,
             text=rest_address,
             actions=[
-                MessageAction(
-                    label='message',
-                    text='message text'
+                URIAction(
+                label='ぐるなびサイトへ',
+                uri=rest_url
                 )
             ]
             )

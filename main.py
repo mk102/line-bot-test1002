@@ -62,6 +62,8 @@ def handle_message(event):
         image = choi['image_url']['shop_image1']
         rest_address = choi['address']
         rest_url = choi['url']
+        if image == '':
+            image = choi['image_url']['qrcode']
         #こっから
         buttons_template_message = TemplateSendMessage(
             alt_text='Buttons template',

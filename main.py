@@ -80,7 +80,8 @@ def handle_message(event):
 
         line_bot_api.reply_message(event.reply_token, messages=buttons_template_message)
         #ここまで
-    #else:
+    else:
+        print('else')
         #line_bot_api.reply_message(
             #event.reply_token,
             #TextSendMessage(text="「お腹すいた」と言ってみよう！"+"\n"+"箱崎のお店をランダムに紹介するよ！！"))

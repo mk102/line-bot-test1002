@@ -65,8 +65,7 @@ def handle_message(event):
             alt_text='Buttons template',
             template=ButtonsTemplate(
             thumbnail_image_url=image,
-            title='Menu',
-            text='Please select',
+            title=choi['name'],
             actions=[
                 MessageAction(
                     label='message',

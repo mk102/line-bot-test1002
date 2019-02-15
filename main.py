@@ -50,7 +50,7 @@ def handle_message(event):
     if text == "こんにちは":
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text="こんにちは"))
+            TextSendMessage(text="こんにちは!!"))
     elif re.match('.*(お腹|おなか|).*(すいた|空いた).*', text):
         url='https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=93af8ad3c31d026bbd4801aaa738b64d&pref=PREF40&areacode_m=AREAM5114&hit_per_page=100&area=AREA140'
         html=requests.get(url)

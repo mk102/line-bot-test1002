@@ -52,7 +52,7 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text="こんにちは"))
     elif re.match('.*(お腹|おなか|).*(すいた|空いた).*', text):
-        url='https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=93af8ad3c31d026bbd4801aaa738b64d&pref=PREF40&areacode_m=AREAM5114&hit_per_page=100&area=AREA140'
+        url='https://api.gnavi.co.jp'
         html=requests.get(url)
         data=json.loads(html.text)
 
